@@ -1,0 +1,330 @@
+/* Pause carousels */
+$(document).ready(function() {
+    $('.carousel').carousel({
+        pause: true,
+        interval: false
+    });
+});
+
+/* disable scroll in portrait */
+$(document).ready(function() {
+    if ($("#forceLandscape").css("display") == "block") {
+        $("body").addClass("modal-open");
+    } else {
+        $("body").removeClass("modal-open");
+    }
+});
+$( window ).resize( function () {
+    if ($("#forceLandscape").css("display") == "block") {
+        $("body").addClass("modal-open");
+    } else {
+        $("body").removeClass("modal-open");
+    }
+});
+
+
+/* Delay popups img load */
+function loadImages() {
+    var imgs = document.getElementsByTagName('img');
+    for (var i = 0; i < imgs.length; i++) {
+        if (imgs[i].getAttribute('data-src')) {
+            imgs[i].setAttribute('src', imgs[i].getAttribute('data-src'));
+        }
+    }
+}
+ 
+if (window.addEventListener) { window.addEventListener("load", loadImages, false); }
+else if (window.attachEvent) { window.attachEvent("onload", loadImages); }
+
+
+/* Smooth scroll */
+$(document).ready(function() {
+    $('.js-scrollTo').on('click', function() { // Au clic sur un élément
+        var page = $(this).attr('href'); // Page cible
+        var speed = 750; // Durée de l'animation (en ms)
+        $('html, body').animate( { scrollTop: $(page).offset().top }, speed ); // Go
+        return false;
+    });
+});
+
+/* Sticky menu on scroll */
+
+$(document).ready(function(){
+    if(window.innerWidth > 768){
+        $(window).scroll(function (event) {
+            var sc = $(window).scrollTop();
+            if (sc > 0) {
+                $("#main-nav").addClass("fixedmenu");
+            } else {
+                $("#main-nav").removeClass("fixedmenu");
+            }
+        });
+    }
+});
+
+
+/* Portfolio height */
+
+var portfolioitems = document.getElementsByClassName("portfolio-item");
+var portfoliooverlays = document.getElementsByClassName("portfolio-item-overlay");
+
+$(document).ready(function() {
+
+    //items height
+    for (var i = 0 ; i < portfolioitems.length ; i++ ) {
+        var width = $(portfolioitems[0]).width();
+        $(portfolioitems[i]).height(width);
+    }
+
+    //overlays line-height
+    for (var j = 0 ; j < portfoliooverlays.length ; j++ ) {
+        var height = $(portfoliooverlays[0]).height();
+        $(portfoliooverlays[j]).css("line-height", height/3*2 + 'px' );
+    }
+
+
+});
+
+$(window).resize(function() {
+
+    for (var i = 0 ; i < portfolioitems.length ; i++ ) {
+        var width = $(portfolioitems[0]).width();
+        $(portfolioitems[i]).height(width);
+    }
+
+    for (var j = 0 ; j < portfoliooverlays.length ; j++ ) {
+        var height = $(portfoliooverlays[0]).height();
+        $(portfoliooverlays[j]).css('line-height', height/3*2 + 'px' );
+    }
+
+    var popups = document.getElementsByClassName("popup");
+    var sc = $(window).scrollTop()
+    for (var i = 0; i < popups.length; i++) {
+        if (window.innerWidth > 768) {
+            if (sc > 0) {
+                $(popups[i]).css({top: '67px'});
+                $(popups[i]).css({height: $(window).height() - 67});
+            }
+            else {
+                $(popups[i]).css({top: '82px'});
+                $(popups[i]).css({height: $(window).height() - 82});
+            }
+        } else {
+            $(popups[i]).css({top: '0px'});
+            $(popups[i]).css({height: $(window).height()});
+        }
+    }
+
+});
+
+/* Popup */
+/* Ouverture */
+
+var watchclassname = document.getElementsByClassName("portfolio-item");
+
+var ouverturepopup = (function() {
+    $("body").addClass("modal-open");
+    var dataprojet = this.getAttribute("data-projet");
+    var popups = document.getElementsByClassName("popup");
+    for (var i = 0; i < popups.length; i++) {
+        var dataopenprojet = popups[i].getAttribute("data-open-projet");
+        if (dataopenprojet == dataprojet){
+            $(popups[i]).css("display" , "block");
+        }
+        var sc = $(window).scrollTop();
+        if(window.innerWidth > 768){
+            if (sc > 0) {
+                $(popups[i]).css({top: '67px'});
+                $(popups[i]).css({height: $(window).height()-67});
+            }
+            else {
+                $(popups[i]).css({top: '82px'});
+                $(popups[i]).css({height: $(window).height()-82});
+            }
+        } else {
+            $(popups[i]).css({top: '0px'});
+            $(popups[i]).css({height: $(window).height()});
+        }
+    }
+});
+
+$(document).ready(function() {
+    for (var k = 0; k < watchclassname.length; k++) {
+        watchclassname[k].addEventListener('click', ouverturepopup, false);
+    }
+});
+
+
+/* Fermeture */
+
+function closepopup(thispopup) {
+    $(thispopup).parent().css("display" , "none");
+    $("body").removeClass("modal-open");
+    $('#main-nav').css("background" , "transparent");
+    if(window.innerWidth > 768){
+        $(window).scroll(function (event) {
+            var sc = $(window).scrollTop();
+            if (sc > 0) {
+                $("#main-nav").addClass("fixedmenu");
+            } else {
+                $("#main-nav").removeClass("fixedmenu");
+            }
+        });
+    } else {
+        $('#main-nav').css("background" , "#242423");
+    }
+
+}
+var ouverturecontact = (function() {
+    var sc = $(window).scrollTop();
+    $("body").addClass("modal-open");
+    $('#main-nav').css("background" , "#000");
+    $('#contact-popup').css("display" , "block");
+
+    if(window.innerWidth > 768){
+        if (sc > 0) {
+            $('#contact-popup').css({top: '67px'});
+        }
+        else {
+            $('#contact-popup').css({top: '82px'});
+        }
+    }
+});
+
+/* Tri du portfolio par theme */
+var classname = document.getElementsByClassName("tributton");
+var triportfolio = (function() {
+
+    var alllist = document.getElementsByClassName("portfolio-item");
+    var attribute = this.getAttribute("data-filter");
+    var attributeelements = document.getElementsByClassName(attribute);
+
+    for (var i = 0; i < classname.length; i++) {
+        $(classname[i]).removeClass("selectedlist");
+    }
+
+    $(this).addClass("selectedlist");
+    for (var i = 0; i < alllist.length; i++ ) {
+        $(alllist[i]).addClass('invisibleprojet')
+        $(alllist[i]).removeClass('visibleprojet');
+    }
+    $(attribute).removeClass('invisibleprojet');
+    $(attribute).addClass('visibleprojet');
+
+
+});
+$(document).ready(function() {
+
+
+    for (var i = 0; i < classname.length; i++) {
+        classname[i].addEventListener('click', triportfolio, false);
+    }
+});
+
+/* Ajax Formulaire */
+
+$(function(){
+    $("#contactform").submit(function(event){
+        var prenom     = $("#inputprenom").val();
+        var nom        = $("#inputnom").val();
+        var email      = $("#inputmail").val();
+        var tel      = $("#inputtel").val();
+        var sujet      = $("#inputsujet").val();
+        var message    = $("#inputmessage").val();
+        var dataString = prenom + nom + email + tel + sujet + message;
+        var msg_all    = "Merci de remplir tous les champs";
+        var msg_alert  = "Merci de remplir ce champ";
+
+        if (dataString  == "") {
+            $("#msg_all").html(msg_all);
+        } else if (prenom == "") {
+            $("#msg_prenom").html(msg_alert);
+        } else if (nom == "") {
+            $("#msg_nom").html(msg_alert);
+        } else if (email == "") {
+            $("#msg_email").html(msg_alert);
+        } else if (tel == "") {
+            $("#msg_tel").html(msg_alert);
+        }else if (sujet == "") {
+            $("#msg_sujet").html(msg_alert);
+        } else if (message == "") {
+            $("#msg_message").html(msg_alert);
+        } else {
+            $.ajax({
+                type : "POST",
+                url: $(this).attr("action"),
+                data: $(this).serialize(),
+                success : function() {
+                    $("#msg_all").html("Votre message a bien été envoyé !");
+                    $("#inputprenom").prop('readonly', true);
+                    $("#inputnom").prop('readonly', true);
+                    $("#inputemail").prop('readonly', true);
+                    $("#inputtel").prop('readonly', true);
+                    $("#inputsujet").prop('readonly', true);
+                    $("#inputmessage").prop('readonly', true);
+                    $("#buttonenvoi").prop('disabled', true);
+                    $("#reinit").prop('disabled', true);
+
+
+                },
+                error: function() {
+                    $("#contactform").html("<p id='formsent'>Erreur d'appel, le formulaire ne peut pas fonctionner</p>");
+                }
+            });
+        }
+        return false;
+    });
+});
+
+function closeallpopups() {
+    $('.popup').css("display" , "none");
+    $("body").removeClass("modal-open");
+}
+
+/* Particles */
+particlesJS.load('home-slide', 'scripts/particles.json', function() {
+    console.log('particles.js loaded - callback');
+});
+
+/* Dyn resize iframe */
+function resizeRadio() { 
+    var width =  $("#popup3ditem").width();
+    if (width/1.7778 <= 200) {
+        $("#popup3ditem").height(500);
+    } else {
+        $("#popup3ditem").height(width/1.7778);
+    }
+    
+}
+
+$( window ).resize( function () {
+    var width =  $("#popup3ditem").width();
+    if(window.innerWidth <= 767){
+        if (width/1.7778 <= 200) {
+            $("#popup3ditem").height(300);
+        } else {
+            $("#popup3ditem").height(width/1.7778);
+        }
+    }
+    else {
+        if (width/1.7778 <= 200) {
+            $("#popup3ditem").height(500);
+        } else {
+            $("#popup3ditem").height(width/1.7778);
+        }
+    }
+});
+
+/*
+$( window ).load(function() { 
+    var iframes = $('iframe');
+    for (var i = 0; i < iframes.length; i++) {
+        $( window ).resize( function () {
+            var width =  iframes[i].width();
+            iframes[i].height(width/1.7778);
+        });
+    }
+})
+
+*/
+

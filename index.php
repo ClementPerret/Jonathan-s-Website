@@ -1,0 +1,341 @@
+<!DOCTYPE HTML>
+
+<html lang="fr">
+
+	<head>
+
+		<?php
+
+			include("include/head.html");
+
+		?>
+
+		
+	</head>
+
+
+
+	<body id="page">
+
+		<div id="top-anchor"></div>
+
+		<div class="container-fluid nopadding">
+
+
+
+				<header class="col-md-12 col-sm-12 col-xs-12 nopadding" id="barre-contact">
+
+					<ul>
+
+						<li class="first-li"><a href="https://www.linkedin.com/in/jonathanlion" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+
+						<li><a href="https://www.artstation.com/artist/jonathanlion" target="_blank"><span id="artstation"></span></a></li>
+
+						<li class="last-li"><a href="https://vimeo.com/user54433168" target="_blank"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
+
+
+
+						<li><span id="contact-button" onClick="ouverturecontact()">Contact</span></li>
+
+					</ul>
+
+				</header>
+
+
+
+				<nav  class="navbar navbar-default" id="main-nav">
+
+					<div class="container-fluid">
+
+						<!-- Brand and toggle get grouped for better mobile display -->
+
+						<div class="navbar-header">
+
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+
+								<span class="sr-only">Toggle navigation</span>
+
+								<span class="icon-bar"></span>
+
+								<span class="icon-bar"></span>
+
+								<span class="icon-bar"></span>
+
+							</button>
+
+							<a class="navbar-brand js-scrollTo" href="#top-anchor" onClick="closeallpopups()">Jonathan Lion</a>
+
+						</div>
+
+
+
+						<!-- Collect the nav links, forms, and other content for toggling -->
+
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+							<ul class="nav navbar-nav">
+
+								<li id="home_slide_link" class="active_link"><a class="js-scrollTo" href="#home-slide" onClick="closeallpopups()">Accueil</a></li>
+
+							</ul>
+
+						</div><!-- /.navbar-collapse -->
+
+					</div><!-- /.container-fluid -->
+
+				</nav>
+
+
+
+				<div class="col-md-12 col-sm-12 col-xs-12 nopadding" id="home-slide">
+
+					<div id="home-slide-background">
+
+						<div id="home-slide-content">
+
+							<h1><span class="bigtext">Jonathan <span class="name">Lion</span></span><br/>
+
+								  3D Artist</h1>
+
+							<div id="arrow">
+
+								<a class="js-scrollTo" href="#arrow"><i class="fa fa-chevron-down fa-2x" aria-hidden="true"></i></a>
+
+							</div>
+
+						</div>
+
+
+
+					</div>
+
+
+
+				</div>
+
+
+
+				<div class="col-md-12 col-sm-12 col-xs-12 nopadding" id="portfolio">
+
+					<div id="portfolio-header">
+
+						<span id="actual-cat">Portfolio</span>
+
+						<ul id="porfolio-cats">
+
+							<li class="tributton selectedlist" data-filter=".cat-all">Tout</li>
+
+							<li class="tributton" data-filter=".cat-game-art">Game Art</li>
+
+						</ul>
+
+					</div>
+
+					<div id="portfolio-grid" >
+
+
+						<div class="col-md-2 col-sm-4 col-xs-6 nopadding portfolio-item cat-all cat-game-art" data-projet="radio">
+
+							<img src="images/realisations/Radio-thumbnail.png" alt="Radio">
+
+							<div class="portfolio-item-overlay">
+
+								<h2>Old Radio</h2>
+
+								<p>Game Art</p>
+
+							</div>
+
+						</div>
+
+
+
+
+						<div class="col-md-2 col-sm-4 col-xs-6 nopadding portfolio-item cat-all cat-game-art" data-projet="corvette">
+
+							<img src="images/realisations/Corvette_thumbnail.jpg" alt="Corvette Z06">
+
+							<div class="portfolio-item-overlay">
+
+								<h2>Corvette Z06</h2>
+
+								<p>Description</p>
+
+							</div>
+
+						</div>
+
+
+						<div class="col-md-2 col-sm-4 col-xs-6 nopadding portfolio-item cat-all cat-game-art" data-projet="corridor">
+
+							<img src="images/realisations/Corridor-thumbnail.png" alt="Corridor">
+
+							<div class="portfolio-item-overlay">
+
+								<h2>Sci-Fi Corridor</h2>
+
+								<p>Environnement modulaire</p>
+
+							</div>
+
+						</div>
+
+
+
+						<div class="col-md-2 col-sm-4 col-xs-6 nopadding portfolio-item cat-all cat-game-art" data-projet="rifle">
+
+							<img src="images/realisations/Vypr-thumbnail.png" alt="VYPR Rifle">
+
+							<div class="portfolio-item-overlay">
+
+								<h2>VYPR Rifle</h2>
+
+								<p>Création à partir d'un Concept</p>
+
+							</div>
+
+						</div>
+
+
+
+
+						<div class="col-md-2 col-sm-4 col-xs-6 nopadding portfolio-item cat-all cat-game-art" data-projet="negev">
+
+							<img src="images/realisations/Negev-thumbnail.png" alt="Negev">
+
+							<div class="portfolio-item-overlay">
+
+								<h2>Negev</h2>
+
+								<p>Description</p>
+
+							</div>
+
+						</div>
+
+
+
+						<div class="col-md-2 col-sm-4 col-xs-6 nopadding portfolio-item cat-all" data-projet="robot">
+
+							<img src="images/realisations/SpyRobot-thumbnail.jpg" alt="Spy Robot">
+
+							<div class="portfolio-item-overlay">
+
+								<h2>Spy Robot</h2>
+
+								<p>Description</p>
+
+							</div>
+
+						</div>
+
+
+
+						<div class="col-md-2 col-sm-4 col-xs-6 nopadding portfolio-item cat-all" data-projet="asian">
+
+							<img src="images/realisations/AsianAmbiance-thumbnail.jpg" alt="Asian Ambiance">
+
+							<div class="portfolio-item-overlay">
+
+								<h2>Asian Ambiance</h2>
+
+								<p>Description</p>
+
+							</div>
+
+						</div>	
+
+					</div>
+
+				</div>
+
+
+
+				<div class="col-md-12 col-sm-12 col-xs-12 nopadding" id="about">
+
+					<h2>A propos de moi</h2>
+						<p>
+							Passionné par les jeux vidéos, curieux et ouvert d’esprit, j’ambitionne de travailler au sein d’une compagnie de jeux vidéo. Je me suis d'abord orienté vers un <span>DUT Informatique, orientation Imagerie Numérique</span>, au Puy-en-Velay. <br/>
+							J’y ai découvert la modélisation 3D qui m’a tout de suite captivé et c’est pourquoi j’ai décidé de me spécialiser dans ce domaine.<br/>
+							J'ai ensuite validé un <span>D.U en Infographie 3D</span>, à <span>Gamagora</span>, à Bron, pour me spécialiser dans la création d'assets pour le jeu vidéo. <br/><br/>
+							
+							En 2015, j’ai saisi l'opportunité de développer mes compétences lors d’un stage de 3 mois à <span>TellHow Animation, en Chine,</span> pendant lequel j’ai participé à la création de contenu 3D pour un film d’animation.<br/>
+							Cela a renforcé ma détermination à poursuivre sur cette voie et à travailler en tant qu’<span>Infographiste 3D</span> mais dans le monde du jeu vidéo.<br/><br/>
+
+							Mes compétences ont pu être mises à l’épreuve avec une équipe de Game Designer et Développers lors d’un prototype de jeu développé en 3 mois pour le Gamagora Game Show.<br/>
+
+							Actuellement à la recherche d’un emploi en tant qu’<span>Environment artist</span> ou <span>Infographiste 3D</span>, je suis disponible dès maintenant. 	
+
+	 
+
+						</p>
+
+					<div class="download_link">
+						<div class="flipthis-wrapper">
+							<a href="LionJonathan-CV.pdf" target="_blank" class="">Télécharger mon CV au format PDF
+							</a>
+						</div>
+					</div>
+
+				</div>
+
+
+
+
+
+		</div> <!-- End container fluid -->
+
+
+
+		<?php
+
+			include("include/contact.html");
+
+		?>
+
+
+
+		<?php
+
+			include("include/popups.html");
+
+		?>
+
+		<footer class="col-md-12 col-sm-12 col-xs-12 nopadding">
+
+			Copyright ©  2016, Jonathan Lion tous droits réservés. Site et thème par <a href="http://clement-perret.fr" target="_blank">Clément Perret</a>.
+
+		</footer>
+		
+		<noscript>
+			<div class="col-md-12 nopadding" id="noscriptalert">
+				<p>Mon portfolio est conçu pour fonctionner de façon optimale avec Javascript activé</p>
+			</div>
+		</noscript>
+
+		<div id="forceLandscape">
+			<img src="images/rotate-icon.svg" alt="please rotate your device">
+			<p>Pour une meilleur expérience, <br/>
+			inclinez votre appareil en mode paysage s'il vous plaît<br/>
+			</p>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+		<script src="scripts/particles.js"></script>
+		<!-- js -->
+		<script src="scripts/script.js"></script>
+
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+					(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-55654804-2', 'auto');
+			ga('send', 'pageview');
+
+		</script>
+
+	</body>
+
+</html>
